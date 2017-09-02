@@ -11,12 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::resource('short-urls', 'ShortUrlController');
 
-Route::resource('url-shorteners', 'UrlShortenerController');
-
-
-Route::get('r/{short_url_id}', ['uses' => 'UrlShortenerController@redirect']);
-Route::get('list', 'UrlShortenerController@list');
+Route::get('r/{url_id}', 'ShortUrlController@redirect');

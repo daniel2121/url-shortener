@@ -1,7 +1,19 @@
-<form method="POST" action="/url-shorteners">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@extends('layouts.master')
 
-  <input type="text" name="long_url" placeholder="Place a link to shorten it">
-  <input type="submit" value="SHORTEN"><br>
-  <input type="text" name="customized_short_url_id" placeholder="Set the ID(Optional)">
-</form>
+@section('title', 'Create ShortUrl')
+
+@section('content')
+  <h2>Create a Short Url</h2>
+  <form method="POST" action="/short-urls">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+      <label for="usr">Long Url:</label>
+      <input type="text" class="form-control" name="reference">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Any ID preference (Optional):</label>
+      <input type="text" class="form-control" name="customized_id">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Create">
+  </form>
+@endsection
